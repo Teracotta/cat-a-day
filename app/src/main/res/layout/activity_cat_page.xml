@@ -42,5 +42,5 @@
         android:text="Share"
         android:layout_below="@id/submission_author"
         android:layout_toRightOf="@id/submission_link"
-        android:textAlignment="center" />
+        android:textAlignment="center"/>
 </RelativeLayout>
