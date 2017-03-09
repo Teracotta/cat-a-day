@@ -25,7 +25,7 @@ public class CatPage extends AppCompatActivity {
                 Intent linkIntent = new Intent(android.content.Intent.ACTION_SEND);
                 linkIntent.setType("text/plain");
                 linkIntent.putExtra(Intent.EXTRA_TEXT, linkToShare);
-                startActivity(Intent.createChooser(linkIntent, "Send picture using:"));
+                startActivity(Intent.createChooser(linkIntent, "Send picture URL using:"));
             }
         });
     }
