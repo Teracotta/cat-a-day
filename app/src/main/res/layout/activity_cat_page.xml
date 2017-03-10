@@ -12,10 +12,9 @@
     tools:context="com.example.teracotta.cataday.CatPage">
 
     <ImageView
-        android:id="@+id/cat_image"
-        android:layout_width="match_parent"
-        android:layout_height="700px"
-        android:src="@drawable/sample_image"/>
+        android:id="@+id/submission_thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/submission_title"
         android:layout_width="match_parent"
