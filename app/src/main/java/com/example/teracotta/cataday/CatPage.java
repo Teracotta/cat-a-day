@@ -17,6 +17,8 @@ import net.dean.jraw.models.Listing;
 import net.dean.jraw.models.Submission;
 import net.dean.jraw.paginators.SubredditPaginator;
 
+import java.util.UUID;
+
 public class CatPage extends AppCompatActivity {
     private Cat redditCat;
     @Override
@@ -55,26 +57,19 @@ public class CatPage extends AppCompatActivity {
         // here retrieve Cat object data
 
 
-
         new Thread(new Runnable()
         {
-            final String username = getString(R.string.username);
-            final String password = getString(R.string.password);
             final String clientId = getString(R.string.client_id);
-            final String clientSecret = getString(R.string.secret);
-            final String appId = getString(R.string.app_id);
 
             @Override
             public void run()
             {
-                UserAgent myUserAgent = UserAgent.of("android",
-                        appId, "0.0.1", username);
+                UserAgent myUserAgent = UserAgent.of("android");
                 RedditClient redditClient = new RedditClient(myUserAgent);
-                Credentials credentials = Credentials.script(username,
-                        password, clientId, clientSecret);
+                Credentials credentials = Credentials.userlessApp(clientId, UUID.randomUUID());
+
                 try {
-                    OAuthData authData = redditClient.getOAuthHelper()
-                            .easyAuth(credentials);
+                    OAuthData authData = redditClient.getOAuthHelper().easyAuth(credentials);
                     redditClient.authenticate(authData);
                 } catch (OAuthException e) {
                     e.printStackTrace();
@@ -88,8 +83,6 @@ public class CatPage extends AppCompatActivity {
                 Log.d("first", first.getTitle());
             }
         }).start();
-
-
 
         return topCat;
     }

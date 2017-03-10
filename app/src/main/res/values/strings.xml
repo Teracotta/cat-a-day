@@ -1,8 +1,4 @@
 <resources>
     <string name="app_name">CatADay</string>
-    <string name="username">x</string>
-    <string name="password">x</string>
-    <string name="client_id">x</string>
-    <string name="app_id">com.example.teracotta.cataday</string>
-    <string name="secret">x</string>
+    <string name="client_id">_nq23eCq9GLb0Q</string>
 </resources>
