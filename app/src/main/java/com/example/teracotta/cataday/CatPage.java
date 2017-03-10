@@ -3,6 +3,7 @@ package com.example.teracotta.cataday;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -36,7 +37,7 @@ public class CatPage extends AppCompatActivity {
             public void done(final Cat cat) {
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        setTopCatValues(cat.getSubmissionThumbnail(), cat.getSubmissionTitle(), cat.getSubmissionAuthor());
+                        setTopCatValues(cat.getSubmissionURL(), cat.getSubmissionTitle(), cat.getSubmissionAuthor());
                         setShareButton(cat.getSubmissionLink());
                     }
                 });
@@ -96,15 +97,18 @@ public class CatPage extends AppCompatActivity {
 
                 Listing<Submission> submissions = paginator.next();
                 boolean SFW = false;
+                boolean mourningTag = true;
                 int counter = 0;
-                while(!SFW) {
+                while(!SFW && mourningTag) {
                     topSubmission = submissions.get(counter);
-                    if (!topSubmission.isNsfw()) {
+                    Log.v("xxxxxx", topSubmission.getSubmissionFlair().toString());
+                    if (!topSubmission.isNsfw() && topSubmission.getSubmissionFlair().toString() != "MOURNING/LOSS") {
                         SFW = true;
+                        mourningTag = false;
                     }
                     counter++;
                 }
-                Cat topCat = new Cat(   topSubmission.getThumbnail(),
+                Cat topCat = new Cat(   topSubmission.getUrl(),
                                         topSubmission.getTitle(),
                                         topSubmission.getAuthor(),
                                         topSubmission.getShortURL());
