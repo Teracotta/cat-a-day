@@ -24,6 +24,8 @@ import java.util.UUID;
 
 public class CatPage extends AppCompatActivity {
     Callback catCallback;
+    Submission topSubmission;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,9 +95,19 @@ public class CatPage extends AppCompatActivity {
                 paginator.setSubreddit("cats");
 
                 Listing<Submission> submissions = paginator.next();
-                final Submission first = submissions.get(0);
-
-                Cat topCat = new Cat(first.getThumbnail(), first.getTitle(), first.getAuthor(), first.getShortURL());
+                boolean SFW = false;
+                int counter = 0;
+                while(!SFW) {
+                    topSubmission = submissions.get(counter);
+                    if (!topSubmission.isNsfw()) {
+                        SFW = true;
+                    }
+                    counter++;
+                }
+                Cat topCat = new Cat(   topSubmission.getThumbnail(),
+                                        topSubmission.getTitle(),
+                                        topSubmission.getAuthor(),
+                                        topSubmission.getShortURL());
 
                 callback.done(topCat);
             }
