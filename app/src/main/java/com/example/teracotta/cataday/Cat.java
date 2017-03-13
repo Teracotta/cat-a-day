@@ -2,20 +2,20 @@ package com.example.teracotta.cataday;
 
 public class Cat {
 
-    private String submissionURL;
+    private String submissionImageURL;
     private String submissionTitle;
     private String submissionAuthor;
     private String submissionLink;
 
-    public Cat(String submissionURL, String submissionTitle, String submissionAuthor, String submissionLink) {
-        this.submissionURL = submissionURL;
+    public Cat(String submissionImageURL, String submissionTitle, String submissionAuthor, String submissionLink) {
+        this.submissionImageURL = submissionImageURL;
         this.submissionTitle = submissionTitle;
         this.submissionAuthor = submissionAuthor;
         this.submissionLink = submissionLink;
     }
 
-    public String getSubmissionURL() {
-        return this.submissionURL;
+    public String getSubmissionImageURL() {
+        return this.submissionImageURL;
     }
 
     public String getSubmissionTitle() {

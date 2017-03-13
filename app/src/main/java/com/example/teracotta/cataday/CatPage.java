@@ -1,6 +1,7 @@
 package com.example.teracotta.cataday;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -37,8 +38,9 @@ public class CatPage extends AppCompatActivity {
             public void done(final Cat cat) {
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        setTopCatValues(cat.getSubmissionURL(), cat.getSubmissionTitle(), cat.getSubmissionAuthor());
+                        setTopCatValues(cat.getSubmissionImageURL(), cat.getSubmissionTitle(), cat.getSubmissionAuthor());
                         setShareButton(cat.getSubmissionLink());
+                        setGotoButton(cat.getSubmissionLink());
                     }
                 });
             }
@@ -54,6 +56,17 @@ public class CatPage extends AppCompatActivity {
         titleLine.setText(submissionTitle);
         authorLine.setText(submissionAuthor);
     }
+
+    private void setGotoButton(final String submissionLink) {
+        findViewById(R.id.goto_button).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent linkIntent = new Intent(Intent.ACTION_VIEW);
+                linkIntent.setData(Uri.parse(submissionLink));
+                startActivity(linkIntent);
+            }
+        });
+    }
+
     private void setShareButton(String submissionLink) {
         final String sharedMessage = "Check out the current top photo on reddit/r/cats! \n\n" + submissionLink;
         final Button shareButton = (Button) findViewById(R.id.share_button);
