@@ -3,7 +3,6 @@ package com.example.teracotta.cataday;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,6 +17,7 @@ import net.dean.jraw.http.oauth.OAuthData;
 import net.dean.jraw.http.oauth.OAuthException;
 import net.dean.jraw.models.Listing;
 import net.dean.jraw.models.Submission;
+import net.dean.jraw.models.Thumbnails;
 import net.dean.jraw.paginators.Sorting;
 import net.dean.jraw.paginators.SubredditPaginator;
 
@@ -46,11 +46,11 @@ public class CatPage extends AppCompatActivity {
         getTopRedditCat(catCallback);
     }
 
-    private void setTopCatValues(String submissionThumbanil, String submissionTitle, String submissionAuthor) {
-        final ImageView catThumbnail = (ImageView) findViewById(R.id.submission_thumbnail);
+    private void setTopCatValues(String submissionImageURL, String submissionTitle, String submissionAuthor) {
+        final ImageView catImage = (ImageView) findViewById(R.id.submission_thumbnail);
         final TextView titleLine = (TextView) findViewById(R.id.submission_title);
         final TextView authorLine = (TextView) findViewById(R.id.submission_author);
-        Picasso.with(this).load(submissionThumbanil).into(catThumbnail);
+        Picasso.with(this).load(submissionImageURL).into(catImage);
         titleLine.setText(submissionTitle);
         authorLine.setText(submissionAuthor);
     }
@@ -63,7 +63,7 @@ public class CatPage extends AppCompatActivity {
                 linkIntent.setType("text/plain");
 
                 linkIntent.putExtra(Intent.EXTRA_TEXT, sharedMessage);
-                startActivity(Intent.createChooser(linkIntent, "Send picture URL using:"));
+                startActivity(Intent.createChooser(linkIntent, "Send via"));
             }
         });
     }
@@ -94,21 +94,35 @@ public class CatPage extends AppCompatActivity {
                 SubredditPaginator paginator = new SubredditPaginator(redditClient);
                 paginator.setSorting(Sorting.TOP);
                 paginator.setSubreddit("cats");
+                paginator.setLimit(10);
 
                 Listing<Submission> submissions = paginator.next();
-                boolean SFW = false;
-                boolean mourningTag = true;
+                boolean NSFW = true, mourningTag = true;
                 int counter = 0;
-                while(!SFW && mourningTag) {
+                String imageUrl = "", tag;
+
+                while(NSFW && mourningTag && (imageUrl.equals(""))) {
                     topSubmission = submissions.get(counter);
-                    Log.v("xxxxxx", topSubmission.getSubmissionFlair().toString());
-                    if (!topSubmission.isNsfw() && topSubmission.getSubmissionFlair().toString() != "MOURNING/LOSS") {
-                        SFW = true;
+
+                    Thumbnails thumbs = topSubmission.getThumbnails();
+                    tag = topSubmission.getSubmissionFlair().getText();
+
+                    if (!topSubmission.isNsfw()) {
+                        NSFW = false;
+                    }
+
+                    if (tag == null || !tag.equals("MOURNING/LOSS")) {
                         mourningTag = false;
+                    }
+
+                    if (thumbs != null) {
+                        Thumbnails.Image source = thumbs.getSource();
+                        imageUrl = source.getUrl();
                     }
                     counter++;
                 }
-                Cat topCat = new Cat(   topSubmission.getUrl(),
+
+                Cat topCat = new Cat(   imageUrl,
                                         topSubmission.getTitle(),
                                         topSubmission.getAuthor(),
                                         topSubmission.getShortURL());
