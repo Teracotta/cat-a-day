@@ -10,8 +10,25 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:background="#fff"
+    android:background="@color/white"
     tools:context="com.example.teracotta.cataday.CatPage">
+
+    <LinearLayout
+        android:id="@+id/loadingLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/white">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/loading_icon" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading ..."/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Description: "
-                android:textColor="#000"
+                android:textColor="@color/blackTextColour"
                 android:textSize="16dp"
                 android:textStyle="bold"/>
             <TextView
@@ -41,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:textColor="#000"
+                android:textColor="@color/blackTextColour"
                 android:textSize="14dp"/>
     </LinearLayout>
 
@@ -54,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Author: "
-                android:textColor="#000"
+                android:textColor="@color/blackTextColour"
                 android:textSize="16dp"
                 android:textStyle="bold"/>
             <TextView
@@ -62,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:textColor="#000"
+                android:textColor="@color/blackTextColour"
                 android:textSize="14dp"/>
     </LinearLayout>
 

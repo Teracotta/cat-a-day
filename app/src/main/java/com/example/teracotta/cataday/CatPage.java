@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -41,6 +42,8 @@ public class CatPage extends AppCompatActivity {
                         setTopCatValues(cat.getSubmissionImageURL(), cat.getSubmissionTitle(), cat.getSubmissionAuthor());
                         setShareButton(cat.getSubmissionLink());
                         setGotoButton(cat.getSubmissionLink());
+                        final LinearLayout loadingLayout = (LinearLayout) findViewById(R.id.loadingLayout);
+                        loadingLayout.setVisibility(LinearLayout.GONE);
                     }
                 });
             }
