@@ -10,8 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
+import com.bumptech.glide.Glide;
 import net.dean.jraw.RedditClient;
 import net.dean.jraw.http.UserAgent;
 import net.dean.jraw.http.oauth.Credentials;
@@ -55,7 +54,7 @@ public class CatPage extends AppCompatActivity {
         final ImageView catImage = (ImageView) findViewById(R.id.submission_image);
         final TextView titleLine = (TextView) findViewById(R.id.submission_title);
         final TextView authorLine = (TextView) findViewById(R.id.submission_author);
-        Picasso.with(this).load(submissionImageURL).into(catImage);
+        Glide.with(this).load(submissionImageURL).into(catImage);
         catImage.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         titleLine.setText(submissionTitle);
         authorLine.setText(submissionAuthor);
