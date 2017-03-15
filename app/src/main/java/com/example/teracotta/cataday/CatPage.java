@@ -52,10 +52,11 @@ public class CatPage extends AppCompatActivity {
     }
 
     private void setTopCatValues(String submissionImageURL, String submissionTitle, String submissionAuthor) {
-        final ImageView catImage = (ImageView) findViewById(R.id.submission_thumbnail);
+        final ImageView catImage = (ImageView) findViewById(R.id.submission_image);
         final TextView titleLine = (TextView) findViewById(R.id.submission_title);
         final TextView authorLine = (TextView) findViewById(R.id.submission_author);
         Picasso.with(this).load(submissionImageURL).into(catImage);
+        catImage.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         titleLine.setText(submissionTitle);
         authorLine.setText(submissionAuthor);
     }
@@ -117,7 +118,7 @@ public class CatPage extends AppCompatActivity {
                 int counter = 0;
                 String imageUrl = "", tag;
 
-                while(NSFW && mourningTag && (imageUrl.equals(""))) {
+                while(NSFW || mourningTag || (imageUrl.equals(""))) {
                     topSubmission = submissions.get(counter);
 
                     Thumbnails thumbs = topSubmission.getThumbnails();
@@ -127,7 +128,7 @@ public class CatPage extends AppCompatActivity {
                         NSFW = false;
                     }
 
-                    if (tag == null || !tag.equals("MOURNING/LOSS")) {
+                    if (tag == null || !tag.equals("Mourning/Loss")) {
                         mourningTag = false;
                     }
 
