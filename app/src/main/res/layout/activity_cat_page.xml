@@ -28,15 +28,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Loading ..."/>
+            android:text="@string/loading_message"/>
     </LinearLayout>
 
     <ImageView
         android:id="@+id/submission_image"
         android:layout_width="match_parent"
-        android:layout_height="200px"
+        android:layout_height="0dp"
         android:gravity="center"
-        android:layout_weight="0.95"/>
+        android:layout_weight="0.95"
+        android:contentDescription="@string/image_description"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,17 +52,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Description: "
+                    android:text="@string/description_title"
                     android:textColor="@color/blackTextColour"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:contentDescription="@string/description_title"/>
                 <TextView
                     android:id="@+id/submission_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
+                    android:gravity="end"
                     android:textColor="@color/blackTextColour"
-                    android:textSize="14dp"/>
+                    android:textSize="14sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -72,17 +74,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Author: "
+                    android:text="@string/author_title"
                     android:textColor="@color/blackTextColour"
-                    android:textSize="16dp"
-                    android:textStyle="bold"/>
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:contentDescription="@string/author_title"/>
                 <TextView
                     android:id="@+id/submission_author"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right"
+                    android:gravity="end"
                     android:textColor="@color/blackTextColour"
-                    android:textSize="14dp"/>
+                    android:textSize="14sp"/>
         </LinearLayout>
 
         <Button
@@ -90,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Go to the post"
+            android:text="@string/goto_button_text"
             android:stateListAnimator="@null"
             android:theme="@style/PrimaryButton"/>
 
@@ -99,7 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Share"
+            android:text="@string/share_button_text"
             android:stateListAnimator="@null"
             android:theme="@style/PrimaryButton"/>
     </LinearLayout>
