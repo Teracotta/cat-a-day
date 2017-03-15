@@ -90,13 +90,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Go to the post" />
+            android:text="Go to the post"
+            android:stateListAnimator="@null"
+            android:theme="@style/PrimaryButton"/>
 
         <Button
             android:id="@+id/share_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Share" />
+            android:text="Share"
+            android:stateListAnimator="@null"
+            android:theme="@style/PrimaryButton"/>
     </LinearLayout>
 </LinearLayout>

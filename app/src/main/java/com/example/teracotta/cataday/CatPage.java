@@ -80,7 +80,7 @@ public class CatPage extends AppCompatActivity {
                 linkIntent.setType("text/plain");
 
                 linkIntent.putExtra(Intent.EXTRA_TEXT, sharedMessage);
-                startActivity(Intent.createChooser(linkIntent, "Send via"));
+                startActivity(Intent.createChooser(linkIntent, "Share via"));
             }
         });
     }
