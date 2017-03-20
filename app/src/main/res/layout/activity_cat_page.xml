@@ -88,22 +88,56 @@
                     android:textSize="14sp"/>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/goto_button"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="@string/goto_button_text"
-            android:stateListAnimator="@null"
-            android:theme="@style/PrimaryButton"/>
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/add_to_favourites_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="@string/add_to_favourites_button_text"
+                android:stateListAnimator="@null"
+                android:theme="@style/PrimaryButton"/>
 
-        <Button
-            android:id="@+id/share_button"
+            <Button
+                android:id="@+id/go_to_favourites_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="@string/go_to_favourites_button_test"
+                android:stateListAnimator="@null"
+                android:theme="@style/PrimaryButton"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="@string/share_button_text"
-            android:stateListAnimator="@null"
-            android:theme="@style/PrimaryButton"/>
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <Button
+                android:id="@+id/goto_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="@string/goto_button_text"
+                android:stateListAnimator="@null"
+                android:theme="@style/PrimaryButton"/>
+
+            <Button
+                android:id="@+id/share_button"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="@string/share_button_text"
+                android:stateListAnimator="@null"
+                android:theme="@style/PrimaryButton"/>
+        </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>
