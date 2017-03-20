@@ -110,7 +110,8 @@
                 android:textAlignment="center"
                 android:text="@string/go_to_favourites_button_test"
                 android:stateListAnimator="@null"
-                android:theme="@style/PrimaryButton"/>
+                android:theme="@style/PrimaryButton"
+                android:onClick="goToAnActivity"/>
         </LinearLayout>
 
         <LinearLayout

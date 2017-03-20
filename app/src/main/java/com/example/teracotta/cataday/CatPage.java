@@ -147,4 +147,9 @@ public class CatPage extends AppCompatActivity {
             }
         }).start();
     }
+
+    public void goToAnActivity(View view) {
+        Intent Intent = new Intent(this, FavouritesCatPage.class);
+        startActivity(Intent);
+    }
 }
