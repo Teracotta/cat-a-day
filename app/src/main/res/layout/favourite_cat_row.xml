@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusable="true"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp"
-    android:clickable="true"
-    android:background="?android:attr/selectableItemBackground"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:weightSum="6">
 
+    <ImageView
+        android:id="@+id/favourite_cat_thumbnail"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
     <TextView
         android:id="@+id/favourite_cat_title"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    </RelativeLayout>
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"/>
+    <TextView
+        android:id="@+id/favourite_cat_author"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <ImageButton
+        android:id="@+id/favourite_cat_share_button"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:src="@drawable/share_icon"
+        android:background="@color/white"
+        android:layout_weight="1"/>
+    <ImageButton
+        android:id="@+id/favourite_cat_delete_button"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:src="@drawable/trashbin_icon"
+        android:background="@color/white"
+        android:layout_weight="1"/>
+    </LinearLayout>

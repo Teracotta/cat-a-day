@@ -141,7 +141,8 @@ public class CatPage extends AppCompatActivity {
                 Cat topCat = new Cat(   imageUrl,
                                         topSubmission.getTitle(),
                                         topSubmission.getAuthor(),
-                                        topSubmission.getShortURL());
+                                        topSubmission.getShortURL(),
+                                        topSubmission.getThumbnail());
 
                 callback.done(topCat);
             }
