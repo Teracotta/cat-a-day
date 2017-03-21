@@ -32,7 +32,12 @@ public class FavouritesCatPage extends AppCompatActivity {
 
     private void prepareCatData() {
         Cat sampleCat = new Cat("test1", "test2", "test3", "test4", "https://b.thumbs.redditmedia.com/_6M___Gd9z3H4e8bef80VZI2ojQvUNBYqgH_1kMDqeA.jpg");
+        Cat sampleCat2 = new Cat("dasdsasadddsadsddsaasddwakldmkndknfdkjndnsksdjmfdkmdfkskdsdmfmdfsdlkmsfd", "fmfkjamdsjdas", "mdskamdsklamsdd", "daksldsmlkasmkldsa", "https://b.thumbs.redditmedia.com/_6M___Gd9z3H4e8bef80VZI2ojQvUNBYqgH_1kMDqeA.jpg");
+        Cat sampleCat3 = new Cat("sdadsa", "dsa", "dsdsdasds", "daksldsmlkdsadsdasmkldsa", "https://b.thumbs.redditmedia.com/_6M___Gd9z3H4e8bef80VZI2ojQvUNBYqgH_1kMDqeA.jpg");
+
         catsList.add(sampleCat);
+        catsList.add(sampleCat2);
+        catsList.add(sampleCat3);
 
         mAdapter.notifyDataSetChanged();
     }
