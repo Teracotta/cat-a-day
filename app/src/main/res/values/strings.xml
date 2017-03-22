@@ -6,8 +6,8 @@
     <string name="author_title">Author: </string>
     <string name="goto_button_text">Go to the post</string>
     <string name="share_button_text">Share</string>
-    <string name="add_to_favourites_button_text">Add to favourites &#9829;</string>
-    <string name="remove_from_favourites_button_text">Remove from favourites &#x1f494;</string>
+    <string name="add_to_favourites_button_text">Add to favourites</string>
+    <string name="remove_from_favourites_button_text">Remove from favourites</string>
     <string name="go_to_favourites_button_test">Open favourites</string>
 
     <string name="image_description">Top image of reddit cats</string>
